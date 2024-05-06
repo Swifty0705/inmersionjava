@@ -1,20 +1,23 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Hola Mundo");
+        System.out.println("Inmersión Java Alura Latam");
 
         String nombre = "Spiderman: into the spiderverse";
+        int iterador=0;
         int fechaDeLanzamiento = 2023;
         double evaluacion = 4.7;
         boolean incluidoEnStreamings = true;
         String sinopsis = """
                 La segunda pelicula animada de miles morales
                 """;
-        double mediaEvaluacion = (4.5+3.7+5)/3;
+        int cantidadUsuarios;
         double mediaEvaluacionesUsuario=0;
+        ArrayList<Double> notaUsuarios = new ArrayList<Double>();
 
         System.out.println(nombre);
         System.out.println(sinopsis);
@@ -26,13 +29,21 @@ public class Main {
         }else{
             System.out.println("no");
         }
-        System.out.println("Nota media: " + mediaEvaluacion);
-        for (int i = 0; i < 3; i++){
-            System.out.println("Digite la nota a la pelicula " + nombre);
-            double notaPelicula = sc.nextDouble();
-            mediaEvaluacionesUsuario = mediaEvaluacionesUsuario + notaPelicula;
+
+        System.out.println("Digite la cantidad de usuarios que calificaran "+ nombre);
+        cantidadUsuarios = sc.nextInt();
+
+        while(iterador<cantidadUsuarios){
+            System.out.println("Digite la calificación " + (iterador + 1) + " de la pelicula: " + nombre );
+            notaUsuarios.add(sc.nextDouble());
+            iterador = iterador + 1;
         }
-        mediaEvaluacionesUsuario = mediaEvaluacionesUsuario/3;
-        System.out.println("La media del usuario es: " + mediaEvaluacionesUsuario);
+
+        System.out.println("las calificaciones de los usuarios son: ");
+        for (Double notaUsuario : notaUsuarios){
+            mediaEvaluacionesUsuario = mediaEvaluacionesUsuario + notaUsuario;
+            System.out.println(notaUsuario);
+        }
+        System.out.println("Media de notas: " + (mediaEvaluacionesUsuario/cantidadUsuarios));
     }
 }
