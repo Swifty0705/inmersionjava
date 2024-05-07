@@ -1,4 +1,5 @@
 package model;
+import static model.Media.durationAllTime;
 
 public class Serie extends Media{
     private int seasons;
@@ -33,6 +34,10 @@ public class Serie extends Media{
         this.seasons = seasons;
     }
 
+    public void calculateAllTimeSeries(){
+        durationAllTime = durationAllTime +(durationEpisodes * episodesBySeasons *seasons);
+    }
+
     @Override
     public String getDurationTimeOnMinutes() {
         return "Duration: " + (seasons * durationEpisodes * episodesBySeasons);
@@ -46,6 +51,7 @@ public class Serie extends Media{
         this.setEpisodesBySeasons(sc.nextInt());
         System.out.println("Write the episodes duration");
         this.setDurationEpisodes(sc.nextInt());
+        calculateAllTimeSeries();
     }
 
     public void readTechnicalFileSerie(){
@@ -53,6 +59,6 @@ public class Serie extends Media{
         System.out.println(getSeasons());
         System.out.println(getEpisodesBySeasons());
         System.out.println(getDurationEpisodes());
-
     }
+
 }

@@ -9,6 +9,7 @@ public class Media {
     private String genre;
     private String sinopsis;
     private int durationTimeOnMinutes;
+    public static int durationAllTime = 0;
 
     Scanner sc = new Scanner(System.in);
 
@@ -70,6 +71,7 @@ public class Media {
 
     public void setDurationTimeOnMinutes(int durationTimeOnMinutes) {
         this.durationTimeOnMinutes = durationTimeOnMinutes;
+        durationAllTime = durationAllTime + durationTimeOnMinutes;
     }
 
     public void writeTechnicalFile(){
@@ -77,11 +79,10 @@ public class Media {
         this.setReleaseDate(sc.nextInt());
         System.out.println("Write the rating: ");
         this.setRating(sc.nextDouble());
-        System.out.println("Is this movie included in the Basic Plan?: ");
+        System.out.println("Is this title included in the Basic Plan?: ");
         this.setBasicPlanIncluded(sc.nextBoolean());
         System.out.println("write the genre: ");
         this.setGenre(sc.next());
-
         System.out.println("write the sinopsis: ");
         this.setSinopsis(sc.next());
     }

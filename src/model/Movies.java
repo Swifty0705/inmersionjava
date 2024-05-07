@@ -1,6 +1,7 @@
 package model;
 import java.util.Scanner;
 
+
 public class Movies extends Media {
 
     Scanner sc = new Scanner(System.in);

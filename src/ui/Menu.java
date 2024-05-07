@@ -1,7 +1,9 @@
 package ui;
 import model.*;
-
+import static model.Media.durationAllTime;
 import java.util.Scanner;
+
+
 
 public class Menu {
     public static void showMenu(){
@@ -22,16 +24,17 @@ public class Menu {
                 case 1:
                     System.out.println("Please enter the name of the movie you wish to watch: ");
                     Movies userMovies = new Movies(sc.next());
-                    userMovies.writeTechnicalFile();
+                    userMovies.writeTechnicalFileMovies();
                     userMovies.readTechnicalFile();
                     break;
                 case 2:
-                    System.out.println("Please enter the name of the movie you wish to watch: ");
+                    System.out.println("Please enter the name of the serie you wish to watch: ");
                     Serie userSerie = new Serie(sc.next());
                     userSerie.writeTechnicalFileSerie();
                     userSerie.readTechnicalFileSerie();
                     break;
                 case 3:
+                    System.out.println("In order to watch all the media titles, you need: " +durationAllTime+" mins.");
                     break;
                 case 4:
                     System.out.println("Thank you for using Media Menu!");
